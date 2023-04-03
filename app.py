@@ -1,6 +1,5 @@
 from flask import Flask, request
 from swagger_ui import api_doc
-import yaml
 
 app = Flask(__name__)
 
