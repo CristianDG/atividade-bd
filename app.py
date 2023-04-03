@@ -1,7 +1,9 @@
 from flask import Flask, request
+from flask_cors import CORS
 from swagger_ui import api_doc
 
 app = Flask(__name__)
+CORS(app)
 
 api_doc(app, config_path='./swagger.json', url_prefix='/swagger')
 
@@ -33,4 +35,4 @@ def post_usuario():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")
