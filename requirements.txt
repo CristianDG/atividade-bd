@@ -1,2 +1,3 @@
 flask
 swagger-ui-py
+flask-cors
