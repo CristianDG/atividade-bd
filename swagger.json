@@ -1,0 +1,55 @@
+{
+    "swagger":"2.0" ,
+    "info":{
+        "description":"Documentação da API da atividade de Banco de Dados",
+        "version":"0.0.0",
+        "title":"Atividade"
+    },
+    "schemes":["http"],
+    "paths":{
+        "/usuarios": {
+            "post":{
+                "summary":"cadastra um usuário",
+                "parameters":[{
+                    "name": "body",
+                    "in": "body",
+                    "schema":{
+                        "type": "object",
+                        "properties":{
+                            "cpf":{"type": "integer", "example": 12313232131},
+                            "nome":{"type": "string"},
+                            "data_nascimento":{"type": "string", "format": "date"}
+                        }
+                    }
+                }],
+                "responses":{
+                    "200":{"description":"cadastra o usuário corretamente e retorna o mesmo com o id"},
+                    "401":{"description":"um usuário com o mesmo cpf já foi cadastrado"}
+                }
+            },
+            "get":{
+                "summary":"retorna todos os usuários",
+                "responses":{
+                    "200":{"description":""}
+                }
+            }
+        },
+        "/usuarios/<id>": {
+            "get":{
+                "summary":"retorna o usuário com esse id",
+                "parameters":[{"name":"id", "in":"path"}],
+                "responses":{
+                    "200":{"description":"retorna o usuário"},
+                    "404":{"description":"não encontra o usuário com esse id"}
+                }
+            }
+        }
+    },
+    "defs":{
+        "post_usuario":{
+            "properties": {
+                "cpf": {"type": "integer"}
+            }
+        }
+    }
+}
